@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Day 03 - First Components</title>
+        <!-- Script tags including React -->
+        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+    </head>
+<body>
+    <div>
+        <h3>Day 03 Notes</h3>
+        <ul class="notes">
+            <li>The babel-core script transpiles ES6 into ES5</li>
+            <li>ReactDOM.render(&lt;what&gt;, &lt;where&gt;)</li>
+            <li>React components act just like any other element on our page, allowing us to build a component tree.</li>
+        </ul>
+    </div>
+    <div id="app"></div>
+    <script type="text/babel">
+        class App extends React.Component {
+            render() {
+                return <h1>Hello from our app</h1>
+            }
+        }
+        var mount = document.querySelector('#app');
+        ReactDOM.render(<App />, mount);
+    </script>
+</body>
+</html>
