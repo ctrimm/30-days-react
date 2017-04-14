@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Day 04 - Complex Components</title>
+        <!-- Script tags including React -->
+        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+<body>
+    <div>
+        <h3>Day 04 Notes</h3>
+        <ul class="notes">
+            <li>Remember that by using `className`, for `class` in JSX.</li>
+            <li>When writing a comment in a React component, you have to place it in {} as a multi-line comment</li>
+        </ul>
+    </div>
+    <div id="app"></div>
+    <script type="text/babel">
+        /* Wrapper component */
+        class App extends React.Component {
+            render() {
+                return (
+                    <div className="notificationsFrame">
+                        <div className="panel">
+                            <Header />
+                            <Content />
+                        </div>
+                    </div>
+                )
+            }
+        }
+
+        class Header extends React.Component {
+            render() {
+                return (
+                    <div className="header">
+                        <div className="fa fa-more"></div>
+
+                        <span className="title">Timeline</span>
+
+                        <input
+                          type="text"
+                          className="searchInput"
+                          placeholder="Search ..." />
+                        
+                        <div className="fa fa-search searchIcon"></div>
+                    </div>
+                )
+            }
+        }
+
+        class Content extends React.Component {
+            render() {
+                return (
+                    <div className="content">
+                        <div className="line"></div>
+
+                    {/* Timeline item */}
+                        <div className="item">
+                            <div className="avatar">
+                                <img src="http://www.croop.cl/UI/twitter/images/doug.jpg" />
+                                Doug
+                            </div>
+
+                            <span className="time">
+                                An hour ago
+                            </span>
+                            <p>Ate lunch</p>
+                            <div className="commentCount">
+                                2
+                            </div>
+                        </div>
+
+                        {/* ... */}
+                    </div>
+                )
+            }
+        }
+        var mount = document.querySelector('#app');
+        ReactDOM.render(<App />, mount);
+    </script>
+</body>
+</html>
